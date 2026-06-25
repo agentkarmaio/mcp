@@ -1,0 +1,69 @@
+{
+  "name": "@agentkarma/mcp",
+  "version": "0.1.0",
+  "description": "Turnkey MCP server for AgentKarma — the reputation layer for autonomous on-chain agents. stdio + HTTP. Run with `npx @agentkarma/mcp`.",
+  "license": "MIT",
+  "author": "Kerem Noras <kerem@noras.tech>",
+  "homepage": "https://agentkarma.io",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agentkarmaio/mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/agentkarmaio/mcp/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "agentkarma-mcp": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && chmod +x dist/cli.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "bun test",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "bun run build",
+    "start": "bun run build && node ./dist/cli.js"
+  },
+  "keywords": [
+    "agentkarma",
+    "mcp",
+    "model-context-protocol",
+    "reputation",
+    "agents",
+    "trust",
+    "erc-8004",
+    "x402"
+  ],
+  "dependencies": {
+    "@agentkarma/sdk": "^0.2.0",
+    "@modelcontextprotocol/sdk": "^1.29.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "bun-types": "^1.1.0",
+    "typescript": "^5.7.0"
+  }
+}

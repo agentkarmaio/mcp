@@ -1,0 +1,21 @@
+# dependencies
+/node_modules
+
+# build output — regenerated with `npm run build` (still shipped to npm via "files")
+/dist
+
+# npm pack artifacts
+*.tgz
+
+# logs / coverage
+/coverage
+*.log
+*.tsbuildinfo
+
+# env / secrets
+.env
+.env*.local
+*.pem
+
+# os
+.DS_Store
